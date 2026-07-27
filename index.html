@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공주월송 진아레히 | ReHll</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#223256;
+    --navy2:#182848;
+    --gold:#c9a86c;
+    --gold2:#e8c98a;
+    --white:#fff;
+    --gray:#f4f4f0;
+    --text:#2c2c2c;
+  }
+  body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--text);background:#fff;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:70px;}
+  .nav-logo{display:flex;flex-direction:column;line-height:1.1;}
+  .nav-logo .brand{font-size:22px;font-weight:900;color:var(--white);letter-spacing:-.02em;}
+  .nav-logo .sub{font-size:10px;color:var(--gold);letter-spacing:.15em;}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.03em;transition:color .2s;}
+  .nav-links a:hover{color:var(--gold);}
+  .nav-phone{display:flex;align-items:center;gap:8px;}
+  .nav-phone span{color:var(--white);font-size:18px;font-weight:700;letter-spacing:.05em;}
+  .nav-cta{background:var(--gold);color:var(--navy);padding:10px 20px;font-size:13px;font-weight:700;letter-spacing:.1em;border:none;cursor:pointer;text-decoration:none;}
+
+  /* HERO */
+  #hero{height:100vh;background:linear-gradient(160deg,#101e36 0%,#182848 60%,#1e3a5f 100%);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding-top:70px;}
+  #hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a86c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+  .hero-inner{position:relative;z-index:1;}
+  .hero-badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:.25em;padding:6px 18px;margin-bottom:32px;}
+  .hero-sub{color:rgba(255,255,255,.6);font-size:16px;letter-spacing:.08em;margin-bottom:16px;}
+  .hero-title{font-size:clamp(36px,5vw,68px);font-weight:900;color:var(--white);line-height:1.15;margin-bottom:20px;word-break:keep-all;}
+  .hero-title span{color:var(--gold);}
+  .hero-desc{color:rgba(255,255,255,.55);font-size:16px;line-height:1.8;margin-bottom:48px;}
+  .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{background:var(--gold);color:var(--navy);padding:16px 36px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:background .2s;}
+  .btn-primary:hover{background:var(--gold2);}
+  .btn-outline{border:1px solid rgba(255,255,255,.4);color:var(--white);padding:16px 36px;font-size:15px;font-weight:500;text-decoration:none;letter-spacing:.05em;transition:all .2s;}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+  .hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:11px;letter-spacing:.15em;}
+  .hero-scroll::after{content:'';width:1px;height:48px;background:linear-gradient(to bottom,rgba(201,168,108,.6),transparent);}
+
+  /* SECTION COMMON */
+  section{padding:100px 40px;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box;}
+  .sec-label{font-size:11px;font-weight:700;letter-spacing:.25em;color:var(--gold);margin-bottom:16px;}
+  .sec-title{font-size:clamp(28px,3.5vw,46px);font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:16px;word-break:keep-all;}
+  .sec-title.white{color:var(--white);}
+  .sec-desc{font-size:16px;color:#666;line-height:1.9;word-break:keep-all;}
+  .sec-desc.white{color:rgba(255,255,255,.65);}
+  .divider{width:40px;height:2px;background:var(--gold);margin:24px 0;}
+
+  /* BRAND */
+  #brand{background:var(--gray);}
+  .brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
+  .brand-visual{background:var(--navy);height:480px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .brand-visual::before{content:'ReHll';font-size:100px;font-weight:900;color:rgba(201,168,108,.08);position:absolute;white-space:nowrap;}
+  .brand-visual-inner{text-align:center;z-index:1;}
+  .brand-logo-text{font-size:48px;font-weight:900;color:var(--white);letter-spacing:-.02em;line-height:1;}
+  .brand-logo-sub{font-size:11px;color:var(--gold);letter-spacing:.2em;margin-top:6px;}
+  .brand-logo-name{font-size:16px;color:rgba(255,255,255,.6);margin-top:20px;letter-spacing:.1em;}
+  .brand-content .quote{font-size:20px;font-weight:700;color:var(--navy);line-height:1.7;margin-bottom:24px;word-break:keep-all;}
+  .brand-content p{font-size:15px;color:#666;line-height:2;}
+
+  /* LOCATION */
+  #location{background:var(--navy);}
+  .location-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;}
+  .loc-item{background:rgba(255,255,255,.04);padding:36px 28px;border:1px solid rgba(201,168,108,.1);transition:all .3s;}
+  .loc-item:hover{background:rgba(201,168,108,.08);border-color:rgba(201,168,108,.3);}
+  .loc-num{font-size:11px;color:var(--gold);letter-spacing:.2em;margin-bottom:16px;font-weight:700;}
+  .loc-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.4;word-break:keep-all;}
+  .loc-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.8;word-break:keep-all;}
+
+  /* SPECS */
+  #specs{background:#fff;}
+  .specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px;}
+  .spec-card{background:var(--navy);padding:44px 28px 40px;text-align:center;border-radius:8px;}
+  .spec-value{font-size:36px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:8px;}
+  .spec-unit{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:16px;}
+  .spec-label{font-size:14px;color:var(--white);font-weight:600;line-height:1.7;word-break:keep-all;}
+  .spec-bar{width:40px;height:2px;background:var(--gold);margin:20px auto 16px;}
+
+  /* TYPE */
+  #type{background:var(--gray);}
+  .type-list{display:flex;gap:16px;margin-top:48px;flex-wrap:wrap;}
+  .type-item{flex:1;min-width:180px;background:var(--white);padding:32px;border-top:3px solid var(--gold);}
+  .type-size{font-size:32px;font-weight:900;color:var(--navy);}
+  .type-size sup{font-size:14px;vertical-align:super;}
+  .type-code{font-size:13px;color:#999;margin:4px 0 16px;letter-spacing:.05em;}
+  .type-line{width:24px;height:1px;background:var(--gold);margin-bottom:16px;}
+  .type-detail{font-size:13px;color:#666;line-height:1.9;}
+
+  /* CONTACT */
+  #contact{background:var(--navy2);padding:120px 40px;}
+  .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .contact-info .city{font-size:11px;letter-spacing:.25em;color:var(--gold);margin-bottom:20px;}
+  .contact-info h2{font-size:clamp(32px,4vw,54px);font-weight:900;color:var(--white);line-height:1.2;margin-bottom:24px;word-break:keep-all;}
+  .contact-phone{display:flex;align-items:center;gap:12px;margin:36px 0 12px;}
+  .contact-phone .ph-label{font-size:12px;color:var(--gold);letter-spacing:.15em;}
+  .contact-phone a{font-size:36px;font-weight:900;color:var(--white);text-decoration:none;letter-spacing:.05em;}
+  .contact-phone a:hover{color:var(--gold);}
+  .contact-details{margin-top:36px;}
+  .contact-row{display:flex;gap:16px;margin-bottom:14px;font-size:14px;}
+  .contact-row .label{color:var(--gold);min-width:60px;font-weight:600;}
+  .contact-row .val{color:rgba(255,255,255,.7);line-height:1.7;}
+  .contact-cta{margin-top:40px;display:flex;flex-direction:column;gap:12px;}
+  .cta-btn{display:block;text-align:center;padding:18px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:all .2s;}
+  .cta-btn.primary{background:var(--gold);color:var(--navy);}
+  .cta-btn.primary:hover{background:var(--gold2);}
+  .cta-btn.secondary{border:1px solid rgba(255,255,255,.25);color:var(--white);}
+  .cta-btn.secondary:hover{border-color:var(--gold);color:var(--gold);}
+
+  /* FOOTER */
+  footer{background:#101e36;padding:40px;text-align:center;}
+  footer p{font-size:12px;color:rgba(255,255,255,.3);line-height:2;}
+  footer .disclaimer{font-size:11px;color:rgba(255,255,255,.2);margin-top:12px;line-height:1.9;}
+
+  /* SIDE FLOAT */
+  .side-float{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:12px;}
+  .side-btn{width:64px;height:64px;border-radius:50%;background:var(--white);border:1px solid #ddd;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;font-size:10px;color:var(--navy);font-weight:600;line-height:1.3;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .2s;}
+  .side-btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy);}
+  .side-btn svg{margin-bottom:4px;}
+
+  @media(max-width:768px){
+    nav{padding:0 20px;}
+    .nav-links{display:none;}
+    section{padding:70px 24px;}
+    .brand-grid,.contact-inner{grid-template-columns:1fr;gap:40px;}
+    .location-grid{grid-template-columns:1fr;}
+    .specs-grid{grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px;}
+    .spec-card{padding:32px 16px;}
+    .spec-value{font-size:clamp(32px,8vw,52px);}
+    #hero{text-align:left;padding:70px 24px 0;}
+    .hero-btns{justify-content:flex-start;}
+    .side-float{display:none;}
+    #siteplan{padding:60px 24px !important;}
+    .sec-label{margin-bottom:12px;}
+    .sec-title{font-size:clamp(24px,6vw,36px);margin-bottom:24px;}
+    .wrap{padding:0 20px;}
+  }
+
+    /* 폼 필드 그리드 모바일 */
+    .form-fields-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;} .form-fields-grid>div{min-width:0;overflow:hidden;}
+    @media(max-width:600px){.form-fields-grid{grid-template-columns:1fr;}}
+  #siteplan{padding:80px 0;}.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.75;}
+  #hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(10,18,40,.62) 0%,rgba(18,28,56,.38) 60%,rgba(10,22,50,.22) 100%);}
+  .hero-inner{position:relative;z-index:2;}
+  .hero-scroll{position:relative;z-index:2;}.loc-img{width:100%;border-radius:10px;margin-bottom:14px;object-fit:cover;}
+  .type-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+  .tab-btn{background:rgba(255,255,255,.07);border:1px solid rgba(201,168,108,.3);color:#c9a86c;border-radius:999px;padding:12px 26px;font-weight:800;font-size:15px;cursor:pointer;transition:all .2s;}
+  .tab-btn.active,.tab-btn:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+  .type-panel{display:none;}
+  .type-panel.active{display:block;}
+  .type-panel img{width:100%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.12);}
+  .panel-info{margin-top:18px;color:#888;font-size:14px;font-weight:600;text-align:center;letter-spacing:.02em;}
+    /* date input placeholder */
+    input[type="date"].date-empty::-webkit-datetime-edit-text,
+    input[type="date"].date-empty::-webkit-datetime-edit-month-field,
+    input[type="date"].date-empty::-webkit-datetime-edit-day-field,
+    input[type="date"].date-empty::-webkit-datetime-edit-year-field{color:#aaa;}
+  </style>
+
+  <!-- Apple Design System -->
+  <style>
+    :root{--spring:cubic-bezier(0.34,1.56,0.64,1);--ease-out:cubic-bezier(0.25,0.46,0.45,0.94)}
+    .btn{transition:transform 180ms var(--spring),box-shadow 250ms var(--ease-out);will-change:transform}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.22)}
+    .btn.primary:hover{box-shadow:0 14px 36px rgba(198,161,91,.32)}
+    .btn:active{transform:scale(0.96) !important;transition-duration:70ms !important}
+    .phone-pill{transition:transform 250ms var(--spring),box-shadow 300ms var(--ease-out);will-change:transform}
+    .phone-pill:hover{transform:scale(1.06);box-shadow:0 18px 44px rgba(198,161,91,.40)}
+    .phone-pill:active{transform:scale(0.97) !important;transition-duration:70ms !important}
+    .menu a{position:relative;transition:color 200ms var(--ease-out)}
+    .menu a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--gold2);transition:width 300ms var(--spring)}
+    .menu a:hover{color:var(--gold2)}
+    .menu a:hover::after{width:100%}
+    .header{backdrop-filter:blur(24px) saturate(220%);-webkit-backdrop-filter:blur(24px) saturate(220%)}
+    .premium-card{transition:transform 380ms var(--spring),box-shadow 380ms var(--ease-out);will-change:transform}
+    .premium-card:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 36px 80px rgba(0,0,0,.30)}
+    .unit-card{transition:transform 350ms var(--spring),box-shadow 350ms var(--ease-out) !important}
+    .unit-card:hover{transform:translateY(-6px) !important;box-shadow:0 28px 70px rgba(0,0,0,.28) !important}
+    .loc{transition:transform 350ms var(--spring),box-shadow 350ms var(--ease-out),background 200ms ease}
+    .loc:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(10,35,30,.13);background:#fcf7ef}
+    .feature{transition:background 200ms var(--ease-out),border-color 200ms ease,transform 300ms var(--spring)}
+    .feature:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.24);transform:translateY(-3px)}
+    .consult-form input:focus,.consult-form select:focus,.consult-form textarea:focus{outline:none;border-color:var(--green2);box-shadow:0 0 0 3.5px rgba(17,80,67,.18);transition:border-color 150ms var(--ease-out),box-shadow 250ms var(--spring)}
+    .quick{transition:background 220ms var(--ease-out)}
+    .quick:hover{background:#0f2b24}
+    .row{transition:background 180ms var(--ease-out)}
+    .row:hover{background:rgba(11,56,47,.05)}
+    .sticky a{transition:transform 140ms var(--spring)}
+    .sticky a:active{transform:scale(0.95) !important;transition-duration:60ms !important}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:50ms !important;animation-duration:50ms !important}.premium-card:hover,.unit-card:hover,.loc:hover,.feature:hover{transform:none !important}}
+  </style>
+  <style>
+    .nav-register-pill{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.42);color:#fff;border-radius:999px;padding:12px 20px;font-weight:950;font-size:16px;white-space:nowrap;text-decoration:none;transition:transform 250ms cubic-bezier(0.34,1.56,0.64,1),background 200ms ease}
+    .nav-register-pill:hover{background:rgba(255,255,255,.22);transform:scale(1.04)}
+    .nav-tel-pill{background:linear-gradient(135deg,#f2d99d,#c79b4a);color:#070707;border-radius:999px;padding:12px 20px;font-weight:950;font-size:16px;white-space:nowrap;text-decoration:none}
+    .nav-phone{display:flex;align-items:center;gap:10px}
+    @media(max-width:768px){.nav-register-pill{display:none}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="brand">ReHll</span>
+    <span class="sub">공주월송 진아레히</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#brand">사업안내</a></li>
+    <li><a href="#location">입지프리미엄</a></li>
+    <li><a href="#specs">분양안내</a></li>
+    <li><a href="#type">세대안내</a></li>
+    <li><a href="#contact">분양문의</a></li>
+  </ul>
+  <div class="nav-phone">
+    <a href="#contact" class="nav-register-pill">관심고객 등록</a>
+    <a href="tel:18003688" class="nav-tel-pill">1599-8766</a>
+  </div>
+</nav>
+
+<!-- SIDE FLOAT -->
+<div class="side-float">
+  <a href="tel:18003688" class="side-btn">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    분양<br>문의
+  </a>
+  <a href="#contact" class="side-btn">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    방문<br>예약
+  </a>
+</div>
+
+<!-- HERO -->
+<section id="hero"><img class="hero-bg-img" src="assets/hero-bg.jpg" alt="공주월송 진아레히">
+  <div class="hero-inner">
+    <div class="hero-badge">GRAND OPEN · 선착순 동호지정 계약중</div>
+    <p class="hero-sub">공주월송을 사는 새로운 방향</p>
+    <h1 class="hero-title">공주와 세종을 함께 누리는<br><span>첫자리</span></h1>
+    <p class="hero-desc">공주월송 진아레히<br>84㎡ A·B / 104㎡ / 116㎡ / 132㎡ &nbsp;|&nbsp; 총 811세대</p>
+    <div class="hero-btns">
+      <a href="tel:18003688" class="btn-primary">전화상담</a>
+      <a href="#contact" class="btn-outline">분양정보 보기</a>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- BRAND -->
+<section id="brand">
+  <div class="wrap">
+    <div class="brand-grid">
+      <div class="brand-visual">
+        <div class="brand-visual-inner">
+          <div class="brand-logo-text">ReHll</div>
+          <div class="brand-logo-sub">진아레히</div>
+          <div class="brand-logo-name">공주월송 진아레히</div>
+        </div>
+      </div>
+      <div class="brand-content">
+        <p class="sec-label">BRAND STORY</p>
+        <div class="divider"></div>
+        <h2 class="sec-title">진아건설은 남다른 철학으로<br>집에 대한 가치를 짓습니다.</h2>
+        <p class="quote">"정도경영, 기술제일, 최고의 품질을 추구하는<br>진아건설의 남다른 라이프가 공주에서 시작됩니다."</p>
+        <p style="font-size:15px;color:#666;line-height:2;margin-bottom:32px;">공주월송 진아레히는 공주와 세종의 경계에서<br>두 도시의 생활권을 동시에 누리는 새로운 주거 가치를 제안합니다.<br>811세대 대단지의 스케일과 삼성물산 협업 조경으로<br>이전에 없던 주거 경험을 선사합니다.</p>
+        <a href="tel:18003688" class="btn-primary" style="display:inline-block;">전화상담</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="wrap">
+    <p class="sec-label">LOCATION PREMIUM</p>
+    <div class="divider" style="background:var(--gold);"></div>
+    <h2 class="sec-title white">진아레히만의<br>라이프 특권을 누리다</h2>
+    <p class="sec-desc white" style="margin-bottom:0;">생활과 가치를 넘어 빛나는 공간 설계, 그 특별한 가치를 만나보세요.</p>
+    <div class="location-grid">
+      <div class="loc-item">
+        <img src="assets/loc-img1.png" alt="PREMIUM 01" class="loc-img">
+        <div class="loc-num">PREMIUM 01</div>
+        <div class="loc-title">공주-세종 광역 BRT</div>
+        <div class="loc-desc">공주-세종 광역 BRT 개통(예정)으로 세종까지 빠른 접근성</div>
+      </div>
+      <div class="loc-item">
+        <img src="assets/loc-img2.png" alt="PREMIUM 02" class="loc-img">
+        <div class="loc-num">PREMIUM 02</div>
+        <div class="loc-title">빠른 광역 교통망</div>
+        <div class="loc-desc">세종-서울(포천) 고속도로 2026년 개통(예정)으로 편리한 광역 교통망 확충</div>
+      </div>
+      <div class="loc-item">
+        <img src="assets/loc-img3.png" alt="PREMIUM 03" class="loc-img">
+        <div class="loc-num">PREMIUM 03</div>
+        <div class="loc-title">월등한 생활환경</div>
+        <div class="loc-desc">법원, 경희한방병원 및 월송 상업지구와 세종시 대형마트가 가까운 편리한 생활</div>
+      </div>
+      <div class="loc-item">
+        <img src="assets/loc-img4.png" alt="PREMIUM 04" class="loc-img">
+        <div class="loc-num">PREMIUM 04</div>
+        <div class="loc-title">공주 월송 · 세종 더블생활권</div>
+        <div class="loc-desc">주거선호도가 높은 공주의 새중심 월송과 세종을 동시에 누리는 더블생활권</div>
+      </div>
+      <div class="loc-item">
+        <img src="assets/loc-img5.png" alt="PREMIUM 05" class="loc-img">
+        <div class="loc-num">PREMIUM 05</div>
+        <div class="loc-title">811세대 대단지</div>
+        <div class="loc-desc">811세대 대단지 안에서 누리는 사우나, 골프연습장, 게스트룸 등 차별화된 단지 특화</div>
+      </div>
+      <div class="loc-item">
+        <img src="assets/loc-img6.png" alt="PREMIUM 06" class="loc-img">
+        <div class="loc-num">PREMIUM 06</div>
+        <div class="loc-title">세대당 1.57대 주차</div>
+        <div class="loc-desc">공주 최대 주차대수 및 광폭 주차장 설계로 여유로운 주차공간</div>
+      </div>
+      <div class="loc-item">
+        <img src="assets/loc-img7.png" alt="PREMIUM 07" class="loc-img">
+        <div class="loc-num">PREMIUM 07</div>
+        <div class="loc-title">안전한 교육환경</div>
+        <div class="loc-desc">단지 내 국공립어린이집 입주민 전용 통학버스 등 자녀를 위한 안심교육</div>
+      </div>
+      <div class="loc-item">
+        <img src="assets/loc-img8.png" alt="PREMIUM 08" class="loc-img">
+        <div class="loc-num">PREMIUM 08</div>
+        <div class="loc-title">계약 즉시 전매 가능</div>
+        <div class="loc-desc">실거주 안정성과 투자를 동시에 만족시키는 환금성 높은 전매가치</div>
+      </div>
+      <div class="loc-item">
+        <img src="assets/loc-img9.png" alt="PREMIUM 09" class="loc-img">
+        <div class="loc-num">PREMIUM 09</div>
+        <div class="loc-title">삼성물산 협업 조경특화</div>
+        <div class="loc-desc">삼성물산 리조트부문(구 에버랜드)과 협업, 수준 높은 힐링과 휴식을 제공하는 차별화된 조경(예정)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section id="specs">
+  <div class="wrap">
+    <p class="sec-label">단지 규모</p>
+    <div class="divider"></div>
+    <h2 class="sec-title">공주월송 진아레히<br>핵심 스펙</h2>
+    <div class="specs-grid">
+      <div class="spec-card">
+        <div class="spec-value">811</div>
+        <div class="spec-unit">세대</div>
+        <div class="spec-bar"></div>
+        <div class="spec-label">대단지 스케일</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-value">1.57</div>
+        <div class="spec-unit">대 / 세대</div>
+        <div class="spec-bar"></div>
+        <div class="spec-label">공주 최대<br>주차대수</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-value">4</div>
+        <div class="spec-unit">가지 타입</div>
+        <div class="spec-bar"></div>
+        <div class="spec-label">84㎡ / 104㎡ / 116㎡ / 132㎡</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-value">즉시</div>
+        <div class="spec-unit">전매</div>
+        <div class="spec-bar"></div>
+        <div class="spec-label">계약 즉시<br>전매 가능</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section id="type">
+  <div class="wrap">
+    <p class="sec-label">세대안내</p>
+    <div class="divider"></div>
+    <h2 class="sec-title">다양한 평형으로<br>나에게 맞는 공간을</h2>
+    <p class="sec-desc" style="margin-bottom:48px;">총 4가지 타입, 811세대 구성</p>
+    <div class="type-tabs">
+      <button class="tab-btn active" onclick="switchTab('84a',this)">84㎡ A</button>
+      <button class="tab-btn" onclick="switchTab('84b',this)">84㎡ B</button>
+      <button class="tab-btn" onclick="switchTab('104',this)">104㎡</button>
+      <button class="tab-btn" onclick="switchTab('116',this)">116㎡</button>
+      <button class="tab-btn" onclick="switchTab('132',this)">132㎡</button>
+    </div>
+    <div class="type-panels">
+      <div class="type-panel active" id="p-84a">
+        <img src="assets/type-84a.jpg" alt="84㎡ A타입 평면도">
+        <p class="panel-info">84㎡ TYPE A &nbsp;·&nbsp; 실용적인 공간 구성 &nbsp;·&nbsp; 3Bay 판상형 설계</p>
+      </div>
+      <div class="type-panel" id="p-84b">
+        <img src="assets/type-84b.jpg" alt="84㎡ B타입 평면도">
+        <p class="panel-info">84㎡ TYPE B &nbsp;·&nbsp; 실용적인 공간 구성 &nbsp;·&nbsp; 3Bay 판상형 설계</p>
+      </div>
+      <div class="type-panel" id="p-104">
+        <img src="assets/type-104.jpg" alt="104㎡ 평면도">
+        <p class="panel-info">104㎡ TYPE A &nbsp;·&nbsp; 넓은 거실과 주방 &nbsp;·&nbsp; 4인 가족 최적</p>
+      </div>
+      <div class="type-panel" id="p-116">
+        <img src="assets/type-116.jpg" alt="116㎡ 평면도">
+        <p class="panel-info">116㎡ TYPE A &nbsp;·&nbsp; 넓은 드레스룸 &nbsp;·&nbsp; 프리미엄 생활 공간</p>
+      </div>
+      <div class="type-panel" id="p-132">
+        <img src="assets/type-132.jpg" alt="132㎡ 평면도">
+        <p class="panel-info">132㎡ TYPE A &nbsp;·&nbsp; 대형 평형 특화 &nbsp;·&nbsp; 테라스 옵션 제공</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 단지배치도 -->
+<section id="siteplan" style="background:#f5f0e8;">
+  <div class="wrap">
+    <p class="sec-label" style="color:#9d7b39;">단지배치도</p>
+    <div class="divider"></div>
+    <h2 class="sec-title" style="color:#223256;">진아레히 단지 배치</h2>
+    <div style="background:#fff;border-radius:24px;padding:28px;margin-top:32px;box-shadow:0 20px 60px rgba(0,0,0,.10);"><img src="assets/siteplan.jpg" alt="공주월송 진아레히 단지배치도" style="width:100%;border-radius:14px;display:block;"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <p class="city">CONTACT US</p>
+        <h2>공주월송을 사는<br>새로운 방향<br><span style="color:var(--gold);">공주와 세종을 함께<br>누리는 첫자리</span></h2>
+        <div class="contact-phone">
+          <div>
+            <div class="ph-label">분양문의</div>
+            <a href="tel:18003688">1599-8766</a>
+          </div>
+        </div>
+        <div class="contact-details">
+          <div class="contact-row">
+            <span class="label">현 장</span>
+            <span class="val">공주시 금흥동 39-4번지 일원</span>
+          </div>
+          <div class="contact-row">
+            <span class="label">견본주택</span>
+            <span class="val">공주시 금흥동 31번지</span>
+          </div>
+          <div class="contact-row">
+            <span class="label">규 모</span>
+            <span class="val">84㎡ A·B / 104㎡ / 116㎡ / 132㎡<br>총 811세대</span>
+          </div>
+          <div class="contact-row">
+            <span class="label">시 행</span>
+            <span class="val">(주)리우</span>
+          </div>
+          <div class="contact-row">
+            <span class="label">시 공</span>
+            <span class="val">(주)리채, 아이리스건설(주)</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-cta">
+          <a href="tel:18003688" class="cta-btn primary">전화상담</a>
+          <a href="#contact" class="cta-btn secondary">관심고객 등록</a>
+        </div>
+        <div style="margin-top:40px;padding:28px;border:1px solid rgba(201,168,108,.2);background:rgba(201,168,108,.04);">
+          <p style="font-size:12px;color:rgba(255,255,255,.4);line-height:2;">
+            ✓ 계약조건 안심보장제<br>
+            &nbsp;&nbsp;&nbsp;분양조건 변경계획 無<br>
+            ✓ 계약조건 변경 시, 기존 계약자 동일 적용<br>
+            ✓ 선착순 동호지정 계약중
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+  <!-- 상담신청 섹션 -->
+  <section id="contact" style="background:#f7f5f0;padding:80px 20px;">
+    <div style="max-width:600px;margin:0 auto;">
+      <h2 style="text-align:center;color:#223256;font-size:26px;font-weight:900;margin-bottom:8px;">방문예약 / 상담신청</h2>
+      <p style="text-align:center;color:#666;margin-bottom:32px;font-size:15px;">궁금하신 사항을 남겨주시면 담당자가 연락드립니다.</p>
+      <form class="consult-form" data-project="공주월송 진아레히" style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 24px rgba(0,0,0,.1);">
+        <div class="form-fields-grid">
+          <div>
+            <label style="display:block;font-weight:700;margin-bottom:6px;color:#223256;">이름 *</label>
+            <input type="text" name="name" required placeholder="성함" style="width:100%;border:1px solid #ddd;border-radius:10px;padding:12px;font:inherit;">
+          </div>
+          <div>
+            <label style="display:block;font-weight:700;margin-bottom:6px;color:#223256;">연락처 *</label>
+            <input type="tel" name="phone" required placeholder="010-0000-0000" style="width:100%;border:1px solid #ddd;border-radius:10px;padding:12px;font:inherit;">
+          </div>
+          <div>
+            <label style="display:block;font-weight:700;margin-bottom:6px;color:#223256;">관심 타입</label>
+            <select name="type" style="width:100%;border:1px solid #ddd;border-radius:10px;padding:12px;font:inherit;">
+              <option value="">선택해주세요</option>
+              <option>84㎡ A타입</option>
+              <option>84㎡ B타입</option>
+              <option>104㎡</option>
+              <option>116㎡</option>
+              <option>132㎡</option>
+              <option>상담 후 결정</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-weight:700;margin-bottom:6px;color:#223256;">방문 희망일</label>
+            <div style="position:relative;">
+              <div id="date-display" onclick="document.getElementById('date-input').click()" style="width:100%;border:1px solid #ddd;border-radius:10px;padding:12px;font:inherit;background:#f5f5f5;color:#aaa;cursor:pointer;box-sizing:border-box;-webkit-user-select:none;user-select:none;">날짜를 선택해주세요</div>
+              <input type="date" id="date-input" name="date" style="position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;box-sizing:border-box;" onchange="var d=this.value?new Date(this.value+'T00:00:00').toLocaleDateString('ko-KR'):null;var el=document.getElementById('date-display');el.textContent=d||'날짜를 선택해주세요';el.style.color=d?'#333':'#aaa';">
+            </div>
+          </div>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="display:block;font-weight:700;margin-bottom:6px;color:#223256;">문의 내용</label>
+          <textarea name="message" rows="4" placeholder="문의 내용을 입력해주세요." style="width:100%;border:1px solid #ddd;border-radius:10px;padding:12px;font:inherit;resize:vertical;"></textarea>
+        </div>
+        <label style="display:flex;gap:10px;align-items:flex-start;margin-bottom:20px;font-size:13px;color:#666;">
+          <input type="checkbox" required style="margin-top:3px;">
+          <span>상담 안내를 위한 개인정보 수집 및 이용에 동의합니다. (성명, 연락처 / 분양완료 시까지)</span>
+        </label>
+        <button type="submit" style="width:100%;background:#223256;color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:900;cursor:pointer;">관심고객 등록</button>
+        <div class="form-status" aria-live="polite" style="margin-top:12px;font-weight:bold;text-align:center;color:#c0392b;"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+  <p>
+    <strong style="color:rgba(255,255,255,.5);">공주월송 진아레히</strong><br>
+    시행 : (주)리우 &nbsp;|&nbsp; 시공 : (주)리채, 아이리스건설(주)<br>
+    현장 : 공주시 금흥동 39-4번지 일원 &nbsp;|&nbsp; 분양문의 : 1599-8766
+  </p>
+  <p class="disclaimer">
+    ※ 본 사이트에 사용된 내용은 소비자의 이해를 돕기 위한 것으로 실제와 다를 수 있습니다.<br>
+    ※ 본 사이트는 편집 과정상 오류가 있을 수 있으니 자세한 사항은 견본주택으로 문의해 주시기 바랍니다.<br>
+    © 2026 공주월송 진아레히 ALL RIGHTS RESERVED.
+  </p>
+</footer>
+
+  <script>
+    (function(){
+      var ENDPOINT='https://script.google.com/macros/s/AKfycbzXiCO-C1RmUXb96X-Cx8bluQzdhWhGZDrT5ECLGosPDD4_sX8irZmu4pZ3veovgEOa/exec';
+      document.querySelectorAll('.consult-form').forEach(function(form){
+        form.addEventListener('submit',function(e){
+          e.preventDefault();
+          var status=form.querySelector('.form-status');
+          var btn=form.querySelector('button[type="submit"]');
+          var fd=new URLSearchParams();
+          new FormData(form).forEach(function(v,k){fd.append(k,v);});
+          fd.append('project',form.dataset.project||document.title);
+          fd.append('page',location.href);
+          fd.append('userAgent',navigator.userAgent);
+          btn.disabled=true; if(status) status.textContent='접수 중입니다...';
+          fetch(ENDPOINT,{method:'POST',mode:'no-cors',body:fd})
+            .then(function(){ form.reset(); if(status) status.textContent='상담신청이 접수되었습니다. 담당자가 순차 연락드립니다.'; })
+            .catch(function(){ if(status) status.textContent='접수 중 오류가 발생했습니다. 1599-8766로 전화상담 부탁드립니다.'; })
+            .finally(function(){ btn.disabled=false; });
+        });
+      });
+    })();
+  </script>
+  <script>
+  document.querySelectorAll('input[type="date"]').forEach(function(el){
+    el.classList.add('date-empty');
+    el.addEventListener('change',function(){
+      if(this.value) this.classList.remove('date-empty');
+      else this.classList.add('date-empty');
+    });
+    el.addEventListener('click',function(){try{this.showPicker();}catch(e){}});
+    el.style.cursor='pointer';
+  });
+  </script>
+  <script>
+  function switchTab(id,el){
+    document.querySelectorAll('.type-panel').forEach(function(p){p.classList.remove('active');});
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+    document.getElementById('p-'+id).classList.add('active');
+    el.classList.add('active');
+  }
+  </script>
+</body>
+</html>
